@@ -42,8 +42,9 @@ jobs:
         
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.4
-    - name: Run test  
-      run: ~/.local/bin/poetry run task test
+      
+    - name: Install dependencies
+      run: poetry install --no-root --no-interaction
     
     - name: Run lint
       run: ~/.local/bin/poetry run task lint
@@ -71,6 +72,10 @@ jobs:
         
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.4
+      
+    - name: Install dependencies
+      run: poetry install --no-root --no-interaction
+      
     - name: Run test  
       run: ~/.local/bin/poetry run task test
     
