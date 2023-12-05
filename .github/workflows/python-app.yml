@@ -23,11 +23,15 @@ jobs:
       
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
-      
+
+    - name: Run test  
     - run: ~/.local/bin/poetry run task test
     
+    - name: Run lint
     - run: ~/.local/bin/poetry run task lint
-    
+
+    - name: Run formatter
     - run: ~/.local/bin/poetry run task formatter
-    
+
+    - name: Run security
     - run: ~/.local/bin/poetry run task security
