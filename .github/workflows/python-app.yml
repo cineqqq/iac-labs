@@ -1,10 +1,11 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Install Poetry Action
+name: Poetry actions
 on: [push]
+
 jobs:
-  poetry_actions:
+  build:
     runs-on: ubuntu-latest
 
     defaults:
@@ -24,6 +25,15 @@ jobs:
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
 
+  tests:
+    needs: build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./example-app
+
+    steps:
     - name: Run test  
       run: ~/.local/bin/poetry run task test
     
@@ -35,3 +45,16 @@ jobs:
 
     - name: Run security
       run: ~/.local/bin/poetry run task security
+
+  unittests:
+    needs: tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./example-app
+
+    steps:
+    - name: Run test  
+      run: ~/.local/bin/poetry run task test
+    
