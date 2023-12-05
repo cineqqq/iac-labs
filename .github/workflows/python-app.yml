@@ -12,7 +12,7 @@ jobs:
         working-directory: ./example-app
         
     steps:
-      - run: poetry run task test
-      - run: poetry run task lint
-      - run: poetry run task formatter
-      - run: poetry run task security
+      - run: ~/.local/bin/poetry run task test
+      - run: ~/.local/bin/poetry run task lint
+      - run: ~/.local/bin/poetry run task formatter
+      - run: ~/.local/bin/poetry run task security
