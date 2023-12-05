@@ -34,6 +34,14 @@ jobs:
         working-directory: ./example-app
 
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.4
     - name: Run test  
       run: ~/.local/bin/poetry run task test
     
@@ -55,6 +63,14 @@ jobs:
         working-directory: ./example-app
 
     steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.4
     - name: Run test  
       run: ~/.local/bin/poetry run task test
     
