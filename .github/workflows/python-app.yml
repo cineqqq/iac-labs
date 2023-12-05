@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
 
-  tests:
+  lint:
     needs: build
     runs-on: ubuntu-latest
 
@@ -48,15 +48,57 @@ jobs:
     
     - name: Run lint
       run: ~/.local/bin/poetry run task lint
+      
+  formatter:
+    needs: build
+    runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./example-app
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.4
+      
+    - name: Install dependencies
+      run: poetry install --no-root --no-interaction
+    
     - name: Run formatter
       run: ~/.local/bin/poetry run task formatter
 
+  security:
+    needs: build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./example-app
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.4
+      
+    - name: Install dependencies
+      run: poetry install --no-root --no-interaction
+
     - name: Run security
       run: ~/.local/bin/poetry run task security
-
+      
   unittests:
-    needs: tests
+    needs: [lint, formatter, security]
     runs-on: ubuntu-latest
 
     defaults:
