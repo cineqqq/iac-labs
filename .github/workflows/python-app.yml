@@ -22,7 +22,7 @@ jobs:
       uses: snok/install-poetry@v1.3.4
       
     - name: Install dependencies
-      run: poetry install
+      run: poetry install --no-root --no-interaction
       
     - run: ~/.local/bin/poetry run task test
     
