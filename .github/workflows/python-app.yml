@@ -5,6 +5,7 @@ name: Poetry actions
 on: [push]
 
 jobs:
+
   build:
     strategy:
       matrix:
@@ -59,9 +60,6 @@ jobs:
         
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.4
-      
-    - name: Install dependencies
-      run: poetry install --no-root --no-interaction
 
     - name: Cache build venv
       id: cached-poetry-dependencies
@@ -96,9 +94,6 @@ jobs:
         
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.4
-      
-    - name: Install dependencies
-      run: poetry install --no-root --no-interaction
 
     - name: Cache build venv
       id: cached-poetry-dependencies
@@ -170,9 +165,6 @@ jobs:
         
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.4
-      
-    - name: Install dependencies
-      run: poetry install --no-root --no-interaction
 
     - name: Cache build venv
       id: cached-poetry-dependencies
