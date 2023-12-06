@@ -36,7 +36,7 @@ jobs:
       with:
         path: |
           ~/.cache/pypoetry/virtualenvs
-          ~/%LOCALAPPDATA%/pypoetry/cache/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
 
   lint:
@@ -67,7 +67,7 @@ jobs:
       with:
         path: |
           ~/.cache/pypoetry/virtualenvs
-          ~/%LOCALAPPDATA%/pypoetry/cache/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
         
     - name: Run lint
@@ -101,7 +101,7 @@ jobs:
       with:
         path: |
           ~/.cache/pypoetry/virtualenvs
-          ~/%LOCALAPPDATA%/pypoetry/cache/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
         
     - name: Run formatter
@@ -138,7 +138,7 @@ jobs:
       with:
         path: |
           ~/.cache/pypoetry/virtualenvs
-          ~/%LOCALAPPDATA%/pypoetry/cache/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
 
     - name: Run security
@@ -172,7 +172,7 @@ jobs:
       with:
         path: |
           ~/.cache/pypoetry/virtualenvs
-          ~/%LOCALAPPDATA%/pypoetry/cache/virtualenvs
+          ~/AppData/Local/pypoetry/Cache/virtualenvs
         key: ${{ runner.os }}-venv
 
     - name: Run test  
