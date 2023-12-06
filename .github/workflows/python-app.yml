@@ -6,7 +6,10 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+    runs-on: ${{ matrix.os }}
 
     defaults:
       run:
@@ -34,7 +37,11 @@ jobs:
 
   lint:
     needs: build
-    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+    runs-on: ${{ matrix.os }}
 
     defaults:
       run:
@@ -65,7 +72,11 @@ jobs:
       
   formatter:
     needs: build
-    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+    runs-on: ${{ matrix.os }}
 
     defaults:
       run:
@@ -96,7 +107,11 @@ jobs:
 
   security:
     needs: build
-    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+    runs-on: ${{ matrix.os }}
 
     defaults:
       run:
@@ -127,7 +142,11 @@ jobs:
       
   unittests:
     needs: [lint, formatter, security]
-    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+    runs-on: ${{ matrix.os }}
 
     defaults:
       run:
