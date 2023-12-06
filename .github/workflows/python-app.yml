@@ -25,6 +25,13 @@ jobs:
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
 
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
+
   lint:
     needs: build
     runs-on: ubuntu-latest
@@ -45,7 +52,14 @@ jobs:
       
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
-    
+
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
+        
     - name: Run lint
       run: ~/.local/bin/poetry run task lint
       
@@ -69,7 +83,14 @@ jobs:
       
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
-    
+
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
+        
     - name: Run formatter
       run: ~/.local/bin/poetry run task formatter
 
@@ -94,6 +115,13 @@ jobs:
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
 
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
+
     - name: Run security
       run: ~/.local/bin/poetry run task security
       
@@ -117,7 +145,14 @@ jobs:
       
     - name: Install dependencies
       run: poetry install --no-root --no-interaction
-      
+
+    - name: Cache build venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: /home/runner/.cache/pypoetry/virtualenvs
+        key: ${{ runner.os }}-venv
+
     - name: Run test  
       run: ~/.local/bin/poetry run task test
     
