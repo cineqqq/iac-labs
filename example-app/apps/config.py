@@ -33,7 +33,7 @@ class ProductionConfig(Config):
         f"{os.getenv('DB_ENGINE', 'postgresql')}://"
         f"{os.getenv('DB_USERNAME', 'mzelezny_baza_user')}:"
         f"{os.getenv('DB_PASS', 'rf00O9pjhuHSkjbeAcD2YbayHIEBOZ1r')}@"
-        f"{os.getenv('DB_HOST', 'dpg-clogbf946foc73c6g4k0-a')}:"
+        f"{os.getenv('DB_HOST', 'dpg-clogbf946foc73c6g4k0-a.frankfurt-postgres.render.com')}:"
         f"{os.getenv('DB_PORT', '5432')}/"
         f"{os.getenv('DB_NAME', 'mzelezny_baza')}"
     )
